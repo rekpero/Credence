@@ -1,0 +1,297 @@
+@mixin poCentering {
+  top: 50%;
+  right: 50%;
+  bottom: 50%;
+  left: 50%;
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.ViewNotary {
+  width: 900px;
+  border-left: 1px solid #c7c7c791;
+  position: relative;
+  background-color: var(--grey1Color);
+
+  .no-notary-container {
+    height: 200px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--labelColor);
+    font-size: 18px;
+    font-weight: 600;
+
+    @include poCentering();
+    .no-notary-icon {
+      font-size: 62px;
+      margin-bottom: 6px;
+    }
+  }
+
+  .view-notary-header {
+    padding: 7px 2em;
+    height: 35px;
+    border-bottom: 1px solid #c7c7c791;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--white);
+    .view-notary-header-content {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      .view-notary-header-subject {
+        margin: 0;
+        font-size: 22px;
+        font-weight: 500;
+      }
+
+      .view-notary-divider {
+        font-size: 5px;
+        color: var(--grey3Color);
+        margin: 0 0.5rem;
+      }
+
+      .view-notary-description {
+        flex: 1;
+        font-size: 16px;
+        color: var(--grey4Color);
+      }
+    }
+    .notary-header-right {
+      display: flex;
+      align-items: center;
+      .notary-time {
+        font-size: 14px;
+        margin-right: 8px;
+        color: var(--grey4Color);
+      }
+      .view-notary-header-close {
+        height: 36px;
+        width: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        cursor: pointer;
+        &:hover {
+          background-color: var(--hoverBackground);
+        }
+      }
+    }
+  }
+
+  .view-notary-body-container {
+    height: calc(100vh - 146px);
+    padding: 1em;
+    background-color: rgba(197, 197, 197, 0.23);
+    color: var(--labelColor);
+    overflow-y: auto;
+
+    .view-notary-body-item {
+      display: flex;
+      align-items: flex-start;
+      background-color: var(--white);
+      border: 1px solid var(--bodyBg);
+      border-radius: 4px;
+      margin-bottom: 1em;
+      height: calc(100vh - 182px);
+    }
+  }
+
+  .notary-info-panel-container {
+    height: 92%;
+    width: 19.9%;
+    position: absolute;
+    top: 79px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid #c7c7c791;
+    .notary-info-header {
+      display: flex;
+      align-items: center;
+      padding: 7px 1rem;
+      border-bottom: 1px solid #c7c7c791;
+
+      .view-notary-header-close {
+        height: 36px;
+        width: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        cursor: pointer;
+        &:hover {
+          background-color: var(--hoverBackground);
+        }
+      }
+
+      .notary-info-header-title {
+        margin: 0;
+        margin-left: 0.5rem;
+      }
+    }
+
+    .notary-info-content {
+      padding: 1rem;
+
+      .notary-info-content-field {
+        margin-bottom: 1rem;
+        .notary-info-content-field-title {
+          font-weight: 500;
+        }
+
+        .notary-info-content-field-value {
+          color: var(--grey3Color);
+          font-size: 14px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          a {
+            color: var(--themeColor);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--themeColor);
+          }
+        }
+      }
+    }
+  }
+}
+
+$information-phone: "only screen and (max-width : 414px)";
+$information-pad: "only screen and (max-width : 1024px) and (min-width: 414px)";
+@media #{$information-phone} {
+  .view-mail {
+    width: 100%;
+
+    .view-mail-body-item {
+      font-size: 12px;
+
+      .user-profile-blockie-icon {
+        height: 30px !important;
+        width: 30px !important;
+      }
+
+      .view-mail-body-content-container {
+        width: 82%;
+
+        .view-mail-body-content-header {
+          align-items: baseline !important;
+
+          .view-mail-body-content-user-reply {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            flex: auto !important;
+            font-size: 14px !important;
+            word-break: break-all;
+          }
+
+          .view-mail-body-content-user {
+            align-items: inherit !important;
+            flex-direction: column;
+            text-align: left;
+
+            .view-mail-body-content-user-name {
+              font-size: 13px !important;
+            }
+            .view-mail-body-content-user-wallet {
+              margin-left: 0em !important;
+            }
+          }
+        }
+
+        .reply-body-amount-input {
+          font-size: 12px !important;
+        }
+
+        .view-mail-body-action-button {
+          padding: 3px 12px !important;
+
+          .view-mail-body-action-icon {
+            margin-right: 6px;
+          }
+        }
+
+        .send-mail-button {
+          height: 30px !important;
+          padding: 0px 20px !important;
+        }
+
+        .reply-mail-trash {
+          height: 30px !important;
+          width: 30px !important;
+        }
+      }
+    }
+  }
+}
+
+@media #{$information-pad} {
+  .view-mail {
+    width: 100%;
+
+    .view-mail-body-item {
+      font-size: 12px;
+
+      .user-profile-blockie-icon {
+        height: 30px !important;
+        width: 30px !important;
+      }
+
+      .view-mail-body-content-container {
+        width: 82%;
+
+        .view-mail-body-content-header {
+          align-items: baseline !important;
+
+          .view-mail-body-content-user-reply {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            flex: auto !important;
+            font-size: 14px !important;
+            word-break: break-all;
+          }
+
+          .view-mail-body-content-user {
+            align-items: inherit !important;
+            flex-direction: column;
+            text-align: left;
+
+            .view-mail-body-content-user-name {
+              font-size: 13px !important;
+            }
+            .view-mail-body-content-user-wallet {
+              margin-left: 0em !important;
+            }
+          }
+        }
+
+        .reply-body-amount-input {
+          font-size: 12px !important;
+        }
+
+        .view-mail-body-action-button {
+          padding: 3px 12px !important;
+
+          .view-mail-body-action-icon {
+            margin-right: 6px;
+          }
+        }
+
+        .send-mail-button {
+          height: 30px !important;
+          padding: 0px 20px !important;
+        }
+
+        .reply-mail-trash {
+          height: 30px !important;
+          width: 30px !important;
+        }
+      }
+    }
+  }
+}
