@@ -6,12 +6,12 @@ import { Link } from "react-router-dom";
 
 function Landing() {
   const { toggleModal } = useContext(ActionContext);
-  const [selectedUsage, setSelectedUsage] = React.useState(0);
-  const usageList = [
-    "yWXfY1_YpL3rNcTCYdepWK13GwmRIZhjIoqNizLFYVo",
-    "pSvIUgcl3npQmaBLr2hj5qQdLOh7FPORlDFEUwr50ZI",
-    "6yc5bDppM04XFdU5cLdBI7xm1MPeui2OjciKCGxVrXA",
-  ];
+  // const [selectedUsage, setSelectedUsage] = React.useState(0);
+  // const usageList = [
+  //   "yWXfY1_YpL3rNcTCYdepWK13GwmRIZhjIoqNizLFYVo",
+  //   "pSvIUgcl3npQmaBLr2hj5qQdLOh7FPORlDFEUwr50ZI",
+  //   "6yc5bDppM04XFdU5cLdBI7xm1MPeui2OjciKCGxVrXA",
+  // ];
 
   return (
     <div className="Landing">
@@ -75,7 +75,7 @@ function Landing() {
           </div>
         </div>
       </div>
-      <div className="content-section">
+      {/* <div className="content-section">
         <div className="usage-section" id="usage">
           <div className="usage-container">
             <h1>How do I use permanotary?</h1>
@@ -141,7 +141,7 @@ function Landing() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       <div className="footer-section">
         <div className="footer-container">
           <div className="footer-app-section">

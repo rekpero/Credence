@@ -1,7 +1,7 @@
 import React from "react";
 import "./Sidebar.scss";
 import { ActionContext, StateContext } from "../../hooks";
-import { Plus, FileText, Loader } from "react-feather";
+import { Plus, FileText } from "react-feather";
 
 function Sidebar() {
   const { toggleModal, selectMenu } = React.useContext(ActionContext);

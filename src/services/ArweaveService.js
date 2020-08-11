@@ -8,7 +8,7 @@ export const arweave = Arweave.init({
   protocol: "https",
 });
 
-const contractId = "X1Mx-u6XE_aC7_k0gFQbLlHhxMYIRhTItdHkS3hs36c";
+const contractId = "s_IMWNug5-I3c22v_oIIUV_8wfh_AiDXzQIyKVUVuRw";
 
 export default class ArweaveService {
   static getWalletAddress = (wallet) => {
@@ -62,11 +62,12 @@ export default class ArweaveService {
 
   static createNotary = async (notary, wallet) => {
     console.log(wallet);
-    // const contractState = await readContract(arweave, contractId);
-    // const holder = selectWeightedPstHolder(contractState.balances);
+    const contractState = await readContract(arweave, contractId);
+    const holder = selectWeightedPstHolder(contractState.balances);
+    console.log(holder);
     const transaction = await arweave.createTransaction(
       {
-        target: "NO6e9qZuAiXWhjJvGl7DYEMt90MMl1kdLwhhocQRAuY",
+        target: holder,
         quantity: arweave.ar.arToWinston("0.01"),
       },
       wallet

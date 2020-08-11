@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./NotaryBox.scss";
 import NotaryBoxTopBar from "../NotaryBoxTopBar";
 import NotaryBoxContent from "../NotaryBoxContent";
-import { ArweaveService } from "../../services";
 
 function NotaryBox() {
   return (

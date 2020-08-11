@@ -58,6 +58,11 @@ export const AppProvider = (props) => {
             ...prevState,
             lastSyncTime: action.lastSyncTime,
           };
+        case "SET_NOTARIES_LOADING":
+          return {
+            ...prevState,
+            notariesLoading: action.notariesLoading,
+          };
         default:
       }
     },
@@ -74,6 +79,7 @@ export const AppProvider = (props) => {
       backupNotaries: [],
       bookmarkedNotaries: [],
       lastSyncTime: moment().toString(),
+      notariesLoading: false,
       paginationConfig: {
         current: 1,
         count: 10,
@@ -118,9 +124,11 @@ export const AppProvider = (props) => {
         dispatch({ type: "TOGGLE_MODAL", modal });
       },
       getAllNotaries: async (walletAddress) => {
+        dispatch({ type: "SET_NOTARIES_LOADING", notariesLoading: true });
         const allNotaries = await ArweaveService.getAllNotaries(walletAddress);
         dispatch({ type: "SET_ALL_NOTARIES", allNotaries });
         dispatch({ type: "SET_BACKUP_NOTARIES", backupNotaries: allNotaries });
+        dispatch({ type: "SET_NOTARIES_LOADING", notariesLoading: false });
       },
       selectNotary: (notary) => {
         dispatch({ type: "SET_SELECTED_NOTARY", selectedNotary: notary });

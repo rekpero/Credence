@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from "react";
+import React from "react";
 import "./Home.scss";
 import { StateContext } from "../../hooks";
 import Header from "../Header";

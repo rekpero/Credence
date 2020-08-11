@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFolderOpen } from "@fortawesome/free-solid-svg-icons";
 import { StateContext, ActionContext } from "../../hooks";
 import moment from "moment";
+import Loader from "react-loader-spinner";
 
 function NotaryBoxContent() {
   const {
@@ -11,6 +12,7 @@ function NotaryBoxContent() {
     selectedNotary,
     selectedMenu,
     walletAddress,
+    notariesLoading,
   } = React.useContext(StateContext);
   const { selectNotary, getAllNotaries } = React.useContext(ActionContext);
 
@@ -26,8 +28,9 @@ function NotaryBoxContent() {
 
   return (
     <div className="NotaryBoxContent">
-      {selectedMenu === "notary" && allNotaries.length
-        ? allNotaries.map((notary, id) => (
+      {selectedMenu === "notary" && !notariesLoading ? (
+        allNotaries.length ? (
+          allNotaries.map((notary, id) => (
             <div
               className={`${
                 selectedNotary && selectedNotary.id === notary.id
@@ -52,7 +55,8 @@ function NotaryBoxContent() {
               </div>
             </div>
           ))
-        : selectedMenu === "notary" && (
+        ) : (
+          selectedMenu === "notary" && (
             <div className="no-notary-container">
               <div>
                 <FontAwesomeIcon
@@ -62,7 +66,19 @@ function NotaryBoxContent() {
               </div>
               <div>No Notary Found</div>
             </div>
-          )}
+          )
+        )
+      ) : (
+        <div className="no-notary-container">
+          <Loader
+            type="Grid"
+            color="#3261b8"
+            height={100}
+            width={100}
+            style={{ display: "flex" }}
+          />
+        </div>
+      )}
     </div>
   );
 }
