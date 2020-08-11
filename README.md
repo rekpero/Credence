@@ -1,3 +1,6 @@
+<p align="center">
+	<img src="https://github.com/rekpero/Credence/blob/master/credence.png" alt="credence showcase">
+</p>
 
 
 # Credence
