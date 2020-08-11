@@ -21,4 +21,4 @@ Credence Web App will start running on localhost
 
 # Demo Link
 To see the deomo of the ArGo you visit at:
-https://www.youtube.com/watch?v=68SwcLDteTM
+https://youtu.be/7fu2SauTKH8
